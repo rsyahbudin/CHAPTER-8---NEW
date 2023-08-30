@@ -1,7 +1,5 @@
-const passport = require("../../lib/passport")
 module.exports = {
-    login: passport.authenticate("local", {
-        successRedirect: "/dashboard",
-        failureRedirect: "/auth/login",
-    }),
-};
+    login: (req, res) => res.render("pages/authentication/login"),
+    register: (req, res) => res.renderres.render("pages/authentication/register"),
+    api: require("./api"),
+}
