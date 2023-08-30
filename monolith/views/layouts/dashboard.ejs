@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/dashboard.css" type="text/css" />
+  </head>
+  <body>
+    <!-- Navbar here -->
+    <%- include('../partials/navbar.ejs') %>
+
+    <!-- Card container here -->
+    <div class="container-fluid">
+      <div class="container d-flex p-4 flex-column">
+        <!-- Content title here -->
+        <h4><%= contentName %></h4>
+        <div class="container-fluid p-4 bg-white">
+          <!-- Content here -->
+          <%- body %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
