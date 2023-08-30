@@ -1,52 +1,52 @@
-import React, { createContext, useState, useEffect } from "react";
-import { v1 as uuid } from "uuid";
+import React, { createContext, useState, useEffect } from 'react'
+import { v1 as uuid } from 'uuid'
 
-export const TaskListContext = createContext();
+export const TaskListContext = createContext()
 
 const TaskListContextProvider = (props) => {
-  const initialState = JSON.parse(localStorage.getItem("tasks")) || [];
+  const initialState = JSON.parse(localStorage.getItem('tasks')) || []
 
-  const [tasks, setTasks] = useState(initialState);
+  const [tasks, setTasks] = useState(initialState)
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
-  const [editItem, setEditItem] = useState(null);
+  const [editItem, setEditItem] = useState(null)
 
   // Add task
   const addTask = (title) => {
-    setTasks([...tasks, { title, id: uuid() }]);
-  };
+    setTasks([...tasks, { title, id: uuid() }])
+  }
 
   // Remove task
   const removeTask = (id) => {
-    setTasks(tasks.filyer((task) => task.id !== id));
-  };
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
 
   // Clear tasks
   const clearList = () => {
-    setTasks([]);
-  };
+    setTasks([])
+  }
 
   // Find task
   const findItem = (id) => {
-    const item = tasks.find((task) => task.id === id);
+    const item = tasks.find((task) => task.id === id)
 
-    setEditItem(item);
-  };
+    setEditItem(item)
+  }
 
   // Edit task
   const editTask = (title, id) => {
     const newTasks = tasks.map((task) =>
       task.id === id ? { title, id } : task
-    );
+    )
 
-    console.log(newTasks);
+    console.log(newTasks)
 
-    setTasks(newTasks);
-    setEditItem(null);
-  };
+    setTasks(newTasks)
+    setEditItem(null)
+  }
 
   return (
     <TaskListContext.Provider
@@ -60,9 +60,9 @@ const TaskListContextProvider = (props) => {
         editTask,
       }}
     >
-      {props.chidren}
+      {props.children}
     </TaskListContext.Provider>
-  );
-};
+  )
+}
 
-export default TaskListContextProvider;
+export default TaskListContextProvider
