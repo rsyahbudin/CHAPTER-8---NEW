@@ -1,6 +1,6 @@
 export default (state, action) => {
     switch (action.type) {
-        case "REMOVE USER":
+        case "REMOVE_USER":
             return {
                 ...state,
                 users: state.users.filter((user) => {
