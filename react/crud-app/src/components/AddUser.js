@@ -22,7 +22,7 @@ export const AddUser = () => {
 
   // onChange
   const onChange = (e) => {
-    setName(e.taget.value);
+    setName(e.target.value);
   };
 
   return (
@@ -39,8 +39,8 @@ export const AddUser = () => {
         ></Input>
       </FormGroup>
       <Button type="submit">Submit</Button>
-      <Link to="/" classname="btn btn-danger ml-2">
-        Cancle
+      <Link to="/" className="btn btn-danger ml-2">
+        Cancel
       </Link>
     </Form>
   );

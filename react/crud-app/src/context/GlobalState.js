@@ -1,52 +1,50 @@
-import React, { createContext, userReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
-// Initial state
+// Intial state
 const initialState = {
-    user:[]
+  users: [],
 };
 
 // Create context
-export const GlobalContext = createContext(initialState)
+export const GlobalContext = createContext(initialState);
 
 // Provider component
 export const GlobalProvider = ({ children }) => {
-    const [state, dispatch] = userReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    // Action
-    const removeUser = (id) => {
-        dispatch({
-            type: "REMOVE_USER",
-            payload: id,
-        });
-    };
+  // Actions
+  const removeUser = (id) => {
+    dispatch({
+      type: "REMOVE_USER",
+      payload: id,
+    });
+  };
 
-    const addUser = (id) => {
-        dispatch({
-            type: "ADD_USER",
-            payload: user,
-        });
-    };
+  const addUser = (user) => {
+    dispatch({
+      type: "ADD_USER",
+      payload: user,
+    });
+  };
 
-    const editUser = (id) => {
-        dispatch({
-            type: "EDIT_USER",
-            payload: user,
-        });
-    };
+  const editUser = (user) => {
+    dispatch({
+      type: "EDIT_USER",
+      payload: user,
+    });
+  };
 
-    return (
-        <GlobalContext.Provider
-          value={{
-            users: state.users,
-            removeUser,
-            addUser,
-            editUser,
-          }}
-        >
-          {children}
-        </GlobalContext.Provider>
-      );
-    
+  return (
+    <GlobalContext.Provider
+      value={{
+        users: state.users,
+        removeUser,
+        addUser,
+        editUser,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
 };
-
