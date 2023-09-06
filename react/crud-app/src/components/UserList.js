@@ -18,7 +18,9 @@ export const UserList = () => {
                   to={`/edit/${user.id}`}
                   color="warning"
                   className="btn btn-warning mr-1"
-                ></Link>
+                >
+                  Edit
+                </Link>
                 <Button onClick={() => removeUser(user.id)} color="danger">
                   Delete
                 </Button>
