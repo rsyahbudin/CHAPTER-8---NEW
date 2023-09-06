@@ -1,0 +1,7 @@
+1. npm install
+2. Setup config file
+3. sequelize db:create 
+4. sequelize db:migrate
+5. install swagger -> npm i swagger-ui-express
+6. run -> nodemon index
+

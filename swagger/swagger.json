@@ -1,0 +1,279 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "binarian@binaracademy.com"
+    }
+  },
+  "license": {
+    "name": "Apache 2.0",
+    "url": "htpp://www.apache.org/license/LICENSE-2.0.html"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Article",
+      "description": "Article Resources"
+    }
+  ],
+  "paths": {
+    "/articles": {
+      "get": {
+        "tags": ["Article"],
+        "summary": "List all available articles",
+        "description": "Get all articles",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "Swagger"
+                  },
+                  "author": {
+                    "type": "string",
+                    "example": "Rafly"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Documentation API in Swagger UI"
+                  },
+                  "approved": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Article"],
+        "summary": "Add a new article",
+        "description": "Create new",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Article object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Swagger"
+                },
+                "author": {
+                  "type": "string",
+                  "example": "Rafly"
+                },
+                "body": {
+                  "type": "string",
+                  "example": "Documentation API in Swagger UI"
+                },
+                "approved": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully create a new article",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Swagger"
+                },
+                "author": {
+                  "type": "string",
+                  "example": "Rafly"
+                },
+                "body": {
+                  "type": "string",
+                  "example": "Documentation API in Swagger UI"
+                },
+                "approved": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/article/{id}": {
+      "get": {
+        "tags": ["Article"],
+        "description": "Get article by ID",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Article ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "Swagger"
+                  },
+                  "author": {
+                    "type": "string",
+                    "example": "Rafly"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Documentation API in Swagger UI"
+                  },
+                  "approved": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Article"],
+        "description": "Update an article",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Update an article",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update an article",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "approved": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "Swagger"
+                  },
+                  "author": {
+                    "type": "string",
+                    "example": "Rafly"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Documentation API in Swagger UI"
+                  },
+                  "approved": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Article"],
+        "description": "Delete an article",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Delete an article",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success delete an article",
+            "schema": {
+              "message": {
+                "type": "srting",
+                "example": "Article telah dihapus"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
